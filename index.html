@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Jaadu Telecommunication</title>
+    <script type="text/javascript" src="paper-full.js"></script>
+    <script type="text/javascript" src="howler.js"></script>
+    <link rel="stylesheet" type="text/css" href="circles.css">
+
+    <script type="text/javascript">
+    	var keyData = {
+            q: {
+                sound: new Howl({
+                src: ['sounds/1.mp3']
+                }),
+                color: '#1abc9c'
+            },
+            w: {
+                sound: new Howl({
+                src: ['sounds/2.mp3']
+                }),
+                color: '#2ecc71'
+            },
+            e: {
+                sound: new Howl({
+                src: ['sounds/3.mp3']
+                }),
+                color: '#3498db'
+            },
+            r: {
+                sound: new Howl({
+                src: ['sounds/4.mp3']
+                }),
+                color: '#9b59b6'
+            }
+        }
+        function onKeyDown(event) {
+        if(keyData[event.key]){
+                keyData[event.key].sound.play();
+        }
+        }
+
+        
+    </script>
+
+    <script type="text/paperscript" canvas="myCanvas">
+    	function onKeyDown(event) {
+        if(keyData[event.key]){
+                keyData[event.key].sound.play();
+        }
+        }
+    </script>
+  </head>
+  <body>
+    <div style="margin: auto; width: 50%;">
+    <button onclick="pressedButton('q')">q</button>
+    <button onclick="pressedButton('w')">w</button>
+    <button onclick="pressedButton('e')">e</button>
+    <button onclick="pressedButton('r')">r</button>
+	</div>
+	<canvas id="myCanvas" resize></canvas>
+
+    <script type="text/javascript">
+    	function pressedButton(key){
+    if(keyData[key]){
+    keyData[key].sound.play();
+}
+}
+    </script>
+
+  </body>
+</html>
